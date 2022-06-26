@@ -62,7 +62,7 @@ This will create an environment named *GameOfLife* which you can use for running
 
 Once you have cloned the repository and have the conda environment (or another virtual environment with the required dependencies) you can then run the **experiments.py** file which will plot the animation of the game of life by default (this corresponds to the method `exp2()`). If you want to obtain the plot and fits for the glider, change the code in **experiments.py** and run the method `exp3()`. Note: `exp1()` was used to obtain the GameOfLifeData.csv file with which the histogram is plotted. You can run it again to see how much the equilibration time varies, but it will be centered around 500 time steps.
 
-## Results obtained from the Ising Model
+## Results obtained from the Game of Life simulations
 To reproduce these results you can run the different experiments set in **experiments.py**.
 
 All these measurements were taken for a 50 x 50 square lattice.
