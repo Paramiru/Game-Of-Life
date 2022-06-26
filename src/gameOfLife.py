@@ -121,34 +121,35 @@ class GameOfLife:
         _, axs = plt.subplots(1, 2, figsize=(14, 8))
         sns.set_theme()
 
+        # Plot for the x-coordinate data
         axs[0].plot(times, xs, label='xs com')
         axs[0].scatter(times, xs, label='xs com scatter')
 
         w_fit = np.linalg.lstsq(phi_linear(times), xs, rcond=None)[0]
-        print(w_fit)
+        print(f'Least squares fitting for x-coord data:\n {w_fit}')
+
         X_grid = np.arange(0, nstep, 0.01)[:,None]
         f_grid = np.dot(phi_linear(X_grid), w_fit)
         axs[0].plot(X_grid, f_grid, label='linear regression fit')
 
         axs[0].set_xlabel('Time')
         axs[0].set_ylabel('x-coordinate')
-        # plt.legend()
-        # plt.show()
+        axs[0].legend()
 
-        # fig2 = plt.figure(figsize=(10,8))
-
+        # Plot for the y-coordinate data
         axs[1].plot(times, ys, label='ys com')
         axs[1].scatter(times, ys, label='ys com scatter')
 
         w_fit = np.linalg.lstsq(phi_linear(times), ys, rcond=None)[0]
-        print(w_fit)
+        print(f'Least squares fitting for y-coord data:\n {w_fit}')
 
         f_grid = np.dot(phi_linear(X_grid), w_fit)
         axs[1].plot(X_grid, f_grid, label='linear regression fit')
 
         axs[1].set_xlabel('Time')
         axs[1].set_ylabel('y-coordinate')
-        plt.legend()
+        axs[1].legend()
+
         plt.show()
 
     def getCoM(self, arr):
